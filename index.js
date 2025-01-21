@@ -1,5 +1,5 @@
 const API_KEY = '2f0ad3953411bdfb6c2964fa864b71d0';
-
+//  I Keerti Krishna Sreenivas S is giving the API credit to Open Weather org
 
 document.getElementById('search-form').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -12,7 +12,7 @@ document.getElementById('search-form').addEventListener('submit', async (event) 
         return;
     }
 
-    // Fetch weather data
+    // Keerti Krishna Sreenivas S
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
     try {
         const response = await fetch(apiUrl);
@@ -24,7 +24,7 @@ document.getElementById('search-form').addEventListener('submit', async (event) 
         const data = await response.json();
         const { name, main, weather } = data;
 
-        // Display weather info
+   
         weatherResult.innerHTML = `
             <h2>Weather in ${name}</h2>
             <p><strong>Temperature:</strong> ${main.temp}°C</p>
