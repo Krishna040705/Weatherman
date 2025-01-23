@@ -9,12 +9,54 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="icon" href="img2.png" type="image/icon type">
+
+<style>
+    #mobile-block {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: orangered;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        border: 2px white solid;
+        
+    }
+    body.blocked {
+        overflow: hidden;
+    }
+</style>
+<script>
+    if (window.innerWidth < 768) {
+        document.addEventListener("DOMContentLoaded", function() {
+            const blockDiv = document.createElement("div");
+            blockDiv.id = "mobile-block";
+            blockDiv.innerHTML = `
+                <p>This website is not viewable on mobile devices.<br>
+                Please use a desktop browser to access the content.<br>
+                Regards Keerti Krishna Sreenivas S</p>
+            `;
+            document.body.appendChild(blockDiv);
+
+            // Prevent scrolling on the page
+            document.body.classList.add("blocked");
+        });
+    }
+</script>
 </head>
+
 <body>
     <div id="scroller">
         <h3>
             <marquee style=" font-size: 20px; color: #ffffff; background-color: #FF5733 ; padding: 15px; border-radius: 5px; height: 10px;" behavior="scroll" direction="left" scrollamount="6">
-                🌞 Welcome to Krishna's Weather WebApplication! 🌧️ Get the weather report of any place you want. Stay updated, stay safe! 🌈
+               <div id="text">🌞 Welcome to Krishna's Weather WebApplication! 🌧️ Get the weather report of any place you want. Stay updated, stay safe! 🌈</div> 
             </marquee>
             
         </h3>
@@ -30,13 +72,13 @@
         <input id="search-input" type="search" placeholder="Enter city name" aria-label="Search">
         <button id="search-button" type="submit">Search</button>
     </form>
-    <div class="emoji">🌈</div>
+    <div class="emoji">🌈🌞🌧️🌈🌞🌧️🌈🌞🌧️🌈🌞🌧️🌈🌞🌧️</div>
     <div id="weather-result"></div>
     <script src="index.js"></script>  
 </form>
 </div>
 <div id="footer">
-    The complete Website is Developed By Keerti Krishna Sreenivas S and API has been credited to the Open Weather Org
+    ©️ Keerti Krishna Sreenivas S and API has been credited to the Open Weather Org
 </div>
 
 </body>
