@@ -17,6 +17,10 @@ body{
     
 }
 
+#text{
+    position: relative;
+    bottom: 10px;
+}
 
 /*Help of Ai*/  
 #scroller h3 {
