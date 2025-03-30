@@ -1,6 +1,6 @@
 
 // Mobile device detection
-if (window.innerWidth < 768) {
+if (window.innerWidth < 500) {
     document.addEventListener("DOMContentLoaded", function() {
         const blockDiv = document.createElement("div");
         blockDiv.id = "mobile-block";
