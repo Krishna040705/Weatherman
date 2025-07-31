@@ -16,7 +16,6 @@
 //     });
 // }
 
-// Weather App Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const API_KEY = '2f0ad3953411bdfb6c2964fa864b71d0';
     const searchForm = document.getElementById('search-form');
@@ -26,24 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const loading = document.getElementById('loading');
     const errorMessage = document.getElementById('error-message');
     
-    // Set current date in last updated
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('update-date').textContent = new Date().toLocaleDateString('en-US', options);
     
-    // Fetch weather data from OpenWeatherMap API
     async function fetchWeather(city) {
         try {
-            // Show loading state
             loading.style.display = 'block';
             weatherResult.style.display = 'none';
             errorMessage.style.display = 'none';
             
-            // Validate input
             if (!city || !/^[a-zA-Z\s,]+$/.test(city)) {
                 throw new Error('Please enter a valid city name');
             }
             
-            // Call OpenWeatherMap API
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
             
             if (!response.ok) {
@@ -62,11 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Update UI with weather data
     function updateWeatherUI(data) {
         const { name, sys, main, weather, wind, clouds, visibility, dt } = data;
         
-        // Convert timestamp to local date/time
         const date = new Date(dt * 1000);
         const options = { 
             weekday: 'long', 
@@ -79,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         const dateTimeString = date.toLocaleString('en-US', options);
         
-        // Update all weather elements
         document.getElementById('location').textContent = `${name}, ${sys.country}`;
         document.getElementById('date-time').textContent = dateTimeString;
         document.getElementById('temperature').textContent = `${Math.round(main.temp)}°C`;
@@ -91,17 +82,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('visibility').textContent = visibility ? `${(visibility/1000).toFixed(1)} km` : 'N/A';
         document.getElementById('cloud-cover').textContent = `${clouds.all}%`;
         
-        // Update weather icon
         const iconCode = weather[0].icon;
         document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
         document.getElementById('weather-icon').alt = weather[0].description;
         
-        // Show weather result
         loading.style.display = 'none';
         weatherResult.style.display = 'block';
     }
     
-    // Event listeners
     searchButton.addEventListener('click', function(e) {
         e.preventDefault();
         const city = searchInput.value.trim();
@@ -126,13 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Fetch weather for default location on initial load
     fetchWeather('Bangalore');
 });
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/service-worker.js")
-    .then(() => console.log("✅ Service Worker Registered"))
+    .then(() => console.log(" Service Worker Registered"))
     .catch((err) => console.error("SW registration failed: ", err));
 }
