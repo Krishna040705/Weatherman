@@ -1,20 +1,20 @@
 
-// Mobile device detection
-if (window.innerWidth < 500) {
-    document.addEventListener("DOMContentLoaded", function() {
-        const blockDiv = document.createElement("div");
-        blockDiv.id = "mobile-block";
-        blockDiv.innerHTML = `
-            <i class="fas fa-mobile-alt"></i>
-            <h2>Enhanced Desktop Experience</h2>
-            <p>For the best experience with Climate 25, please access this website from a desktop or tablet device. Our advanced weather visualization tools require a larger display.</p>
-            <p>Thank you for your understanding.</p>
-            <p><small>- Keerti Krishna Sreenivas S</small></p>
-        `;
-        document.body.appendChild(blockDiv);
-        document.body.classList.add("blocked");
-    });
-}
+// // Mobile device detection
+// if (window.innerWidth < 500) {
+//     document.addEventListener("DOMContentLoaded", function() {
+//         const blockDiv = document.createElement("div");
+//         blockDiv.id = "mobile-block";
+//         blockDiv.innerHTML = `
+//             <i class="fas fa-mobile-alt"></i>
+//             <h2>Enhanced Desktop Experience</h2>
+//             <p>For the best experience with Climate 25, please access this website from a desktop or tablet device. Our advanced weather visualization tools require a larger display.</p>
+//             <p>Thank you for your understanding.</p>
+//             <p><small>- Keerti Krishna Sreenivas S</small></p>
+//         `;
+//         document.body.appendChild(blockDiv);
+//         document.body.classList.add("blocked");
+//     });
+// }
 
 // Weather App Functionality
 document.addEventListener('DOMContentLoaded', function() {
