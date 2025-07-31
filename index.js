@@ -129,3 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetch weather for default location on initial load
     fetchWeather('Bangalore');
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/service-worker.js")
+    .then(() => console.log("✅ Service Worker Registered"))
+    .catch((err) => console.error("SW registration failed: ", err));
+}

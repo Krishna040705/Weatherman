@@ -1,0 +1,22 @@
+{
+  "name": "Climate 25",
+  "short_name": "Climate25",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101010",
+  "theme_color": "#2E86AB",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "Images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
